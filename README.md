@@ -20,3 +20,7 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 # MiniProyecto2_POE_Item2
 upstream/main
+
+Juan Esteban Franco 2259475
+Andres Eduardo Narvaez 2259545
+Alejandro Garzon 2266088
