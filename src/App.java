@@ -1,7 +1,6 @@
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Ventana ventana = new Ventana();
-        ventana.setVisible(true); 
-        System.out.println(ventana);
+        ventana.setVisible(true);
     }
 }
