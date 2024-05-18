@@ -25,7 +25,7 @@ class Lienzo extends JPanel implements MouseListener, MouseMotionListener {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(lineColor);
         g.drawLine(x1, y1, x2, y2);

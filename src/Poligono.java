@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Poligono extends JPanel {
-    private List<Point> lineas;
+    private List<Point> puntos;
 
     public Poligono() {
-        lineas = new ArrayList<>();
+        puntos = new ArrayList<>();
         setBackground(Color.WHITE);
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                lineas.add(e.getPoint());
+                puntos.add(e.getPoint());
                 repaint();
             }
         });
@@ -23,15 +23,15 @@ class Poligono extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (lineas.size() > 1) {
-            int[] xPoints = new int[lineas.size()];
-            int[] yPoints = new int[lineas.size()];
-            for (int i = 0; i < lineas.size(); i++) {
-                Point punto = lineas.get(i);
+        if (puntos.size() > 1) {
+            int[] xPoints = new int[puntos.size()];
+            int[] yPoints = new int[puntos.size()];
+            for (int i = 0; i < puntos.size(); i++) {
+                Point punto = puntos.get(i);
                 xPoints[i] = punto.x;
                 yPoints[i] = punto.y;
             }
-            g.drawPolygon(xPoints, yPoints, lineas.size());
+            g.drawPolygon(xPoints, yPoints, puntos.size());
         }
     }
 }

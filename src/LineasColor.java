@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 class LineasColoridas extends JPanel implements MouseListener, MouseMotionListener {
     private int x1, y1, x2, y2;
+    private Random random = new Random();
 
     public LineasColoridas() {
         addMouseListener(this);
@@ -25,13 +26,10 @@ class LineasColoridas extends JPanel implements MouseListener, MouseMotionListen
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Random random = new Random();
-        int red = random.nextInt(256);
-        int green = random.nextInt(256);
-        int blue = random.nextInt(256);
-        g.setColor(new Color(red, green, blue));
+        Color lineColor = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
+        g.setColor(lineColor);
         g.drawLine(x1, y1, x2, y2);
     }
 
