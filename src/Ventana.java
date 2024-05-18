@@ -3,19 +3,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana extends JFrame implements ActionListener {
+public class Ventana extends JFrame {
     private Container contenedor;
     private JPanel panel1;
     private JButton boton1, boton2, boton3;
-    private Lienzo lienzo;
-    private Poligono poligono;
 
     Color miColor = new Color(216, 225, 230);
     Color mi_Otro_Color = new Color(110, 135, 146);
 
     public Ventana() {
         setTitle("Figuras en Lienzo");
-        setSize(200, 280);
+        setSize(800, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -25,11 +23,11 @@ public class Ventana extends JFrame implements ActionListener {
         panel1 = new JPanel();
         panel1.setBackground(miColor);
 
-        contenedor.add(panel1);
+        contenedor.add(panel1, BorderLayout.NORTH);
 
         boton1 = new JButton("Lineas");
         boton2 = new JButton("Poligonos");
-        boton3 = new JButton("lineas coloridas");
+        boton3 = new JButton("Lineas Coloridas");
 
         panel1.add(boton1);
         panel1.add(boton2);
@@ -40,13 +38,11 @@ public class Ventana extends JFrame implements ActionListener {
         boton2.setPreferredSize(buttonSize);
         boton3.setPreferredSize(buttonSize);
 
-        contenedor.add(panel1, BorderLayout.CENTER);
-
         boton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                contenedor.removeAll();
-                contenedor.add(new Lienzo());
+                contenedor.remove(2);
+                contenedor.add(new Lienzo(), BorderLayout.CENTER);
                 contenedor.revalidate();
                 contenedor.repaint();
             }
@@ -66,14 +62,12 @@ public class Ventana extends JFrame implements ActionListener {
         boton3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /* */
+                contenedor.remove(2);
+                contenedor.add(new LineasColoridas(), BorderLayout.CENTER);
+                contenedor.revalidate();
+                contenedor.repaint();
             }
         });
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        /* */
     }
 
     public static void main(String[] args) {
